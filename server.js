@@ -3,7 +3,9 @@ import { route } from "./routes/notesRoutes.js";
 import { error } from "./middleware/errorMiddleware.js";
 import { connectDB } from "./config/db.js";
 import cors from "cors";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 
 app.use(cors());
