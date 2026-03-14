@@ -45,3 +45,13 @@ export const loginUser = async (req, res) => {
 
   res.json({ token });
 };
+
+export const getUserProfile = async (req, res) => {
+  const user = await User.findById(req.user).select("-password");
+
+  if (!user) {
+    res.status(404).json({ message: "User not found" });
+  }
+
+  res.json(user);
+};
